@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: pipelines-appsets-argocd-rollouts
+spec:
+  generators:
+  - git:
+      repoURL: https://git.harness.io/IFG41DWvSnaRLOVNB2uesg/appset.git
+      revision: HEAD
+      files:
+      - path: "appsets-and-rollouts/cluster-config/**/config.json"
+  template:
+    metadata:
+      name: '{{cluster_name}}-canary'
+      labels:
+        harness.io/envRef: '{{environment}}'
+        harness.io/serviceRef: '{{harness_service}}'
+        harness.io/buildRef: '{{image_tag}}'
+    spec:
+      project: 7f15c883
+      source:
+        repoURL: https://git.harness.io/IFG41DWvSnaRLOVNB2uesg/appset.git
+        targetRevision: HEAD
+        path: "appsets-and-rollouts/base"
+        kustomize:
+          images:
+          - argoproj/rollouts-demo:{{image_tag}}
+      destination:
+        server: '{{server_address}}'
+        namespace: 'gitops-argocd-rollouts-{{environment}}'
+      syncPolicy:
+        automated:
+          selfHeal: true
+        syncOptions:
+        - PruneLast=true
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
