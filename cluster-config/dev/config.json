@@ -1,7 +1,0 @@
-{
-  "cluster_name" : "gke-dev",
-  "harness_service" : "gitopsrolloutscanary",
-  "environment" : "gitopsdev",
-  "image_tag" : "purple",
-  "server_address" : "https://35.195.43.216"
-}
