@@ -3,5 +3,5 @@
   "harness_service" : "gitopsrolloutscanary",
   "environment" : "gitopsdev",
   "image_tag" : "purple",
-  "server_address" : "https://35.195.43.216"
+  "server_address" : "https://kubernetes.default.svc"
 }
