@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://git.harness.io/IFG41DWvSnaRLOVNB2uesg/appset.git
+      repoURL: https://github.com/nikpapag/harness-gitops-appset.git
       revision: HEAD
       files:
       - path: "appsets-and-rollouts/cluster-config/**/config.json"
@@ -19,7 +19,7 @@ spec:
     spec:
       project: 7f15c883
       source:
-        repoURL: https://git.harness.io/IFG41DWvSnaRLOVNB2uesg/appset.git
+        repoURL: https://github.com/nikpapag/harness-gitops-appset.git
         targetRevision: HEAD
         path: "appsets-and-rollouts/base"
         kustomize:
