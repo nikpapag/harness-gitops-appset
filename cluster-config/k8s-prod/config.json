@@ -1,0 +1,7 @@
+{
+  "cluster_name" : "k8s-prod",
+  "harness_service" : "gitopsrolloutscanary",
+  "environment" : "gitopsprod",
+  "image_tag" : "purple",
+  "server_address" : "https://34.10.35.50"
+}
