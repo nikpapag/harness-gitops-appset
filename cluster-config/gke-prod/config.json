@@ -1,7 +1,0 @@
-{
-  "cluster_name" : "gke-prod",
-  "harness_service" : "gitopsrolloutscanary",
-  "environment" : "gitopsprod",
-  "image_tag" : "purple",
-  "server_address" : "https://kubernetes.default.svc"
-}
